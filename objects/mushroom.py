@@ -9,7 +9,15 @@ class Mushroom:
 		pattern = r"-(?P<month>[0-9]{2})-"
 		reMatch = re.search(pattern, creation_time)
 		self.month = reMatch.group("month")
-	
+
+	def to_dict(self):
+		return {
+			"place": self.place,
+			"creation_time": self.creation_time,
+			"latitude":self.latitude,
+			"longitude":self.longitude,
+			"month":self.month
+		}
 
 class MushroomList:
 	def __init__(self, mushroomList):
