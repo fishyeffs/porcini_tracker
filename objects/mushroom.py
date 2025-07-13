@@ -8,7 +8,7 @@ class Mushroom:
 		self.longitude = longitude
 		pattern = r"-(?P<month>[0-9]{2})-"
 		reMatch = re.search(pattern, creation_time)
-		self.month = reMatch.group("month")
+		self.month = int(reMatch.group("month").lstrip("0"))
 
 	def to_dict(self):
 		return {
@@ -33,6 +33,9 @@ class MushroomList:
 
 	def getAll(self):
 		return self.mushrooms
+	
+	def getSize(self):
+		return len(self.mushrooms)
 
 	def get(self, index):
 		return self.mushrooms[index]
